@@ -1,0 +1,10 @@
+<div class="wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <app-start-menu @menuFadeOut *ngIf="!isGameStarted" (startGame)="startGame()"></app-start-menu>
+        <app-main-game @ticketFadeIn *ngIf="isGameStarted"></app-main-game>
+      </div>
+    </div>
+  </div>
+</div>

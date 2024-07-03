@@ -1,0 +1,11 @@
+$mainGradient: #7f7fd5, #86a8e7, #91eae4
+@mixin gradient($direction, $list) 
+  background: -webkit-linear-gradient($direction, $list)
+  background: -moz-linear-gradient($direction, $list)
+  background: -o-linear-gradient($direction, $list)
+  background: linear-gradient($direction, $list)
+.wrapper
+  width: 100%
+  min-height: 100dvh
+  @include gradient(to right, $mainGradient)
+  overflow: hidden

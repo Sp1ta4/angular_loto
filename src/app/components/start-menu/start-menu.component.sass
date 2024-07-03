@@ -1,0 +1,40 @@
+$mainGradient: #7f7fd5, #86a8e7, #91eae4
+$buttonsGradient:  #a8ff78, #78ffd6
+$alertGradient: #d9a7c7, #fffcdc
+@mixin font()
+  font-family: "Protest Strike", sans-serif
+  font-weight: 400
+  font-style: normal
+@mixin gradient($direction, $list) 
+  background: -webkit-linear-gradient($direction, $list)
+  background: -moz-linear-gradient($direction, $list)
+  background: -o-linear-gradient($direction, $list)
+  background: linear-gradient($direction, $list)
+
+.main-menu-col
+  min-height: 100dvh
+  margin-top: 100px
+  .menu-text
+    h1
+      font-size: 13em
+      @include font()
+      color: #fff
+  .menu-select-difficulty
+    label, h3
+      @include font()
+      letter-spacing: 2px
+    mat-slider
+      width: 300px    
+  .start-button
+    @include font()
+    width: 250px
+    height: 65px
+    font-size: 2.4rem
+    filter: opacity(70%)
+    color: #252525
+    transition: all .45s ease
+    @include gradient(to left , $buttonsGradient )
+    &:hover
+      filter: opacity(100%)
+      transform: translateY(-1px)
+      box-shadow:  0px 18px 57px -12px rgba(34, 60, 80, 0.6)
