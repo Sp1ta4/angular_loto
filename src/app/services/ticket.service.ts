@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ITicketElement } from '../interfaces/ITicketElement';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -7,15 +8,16 @@ import { ITicketElement } from '../interfaces/ITicketElement';
 export class TicketService {
   public difficultyLevel: number = 2;
   public ticket = this.createTicket();
-  public currentNum: number = this.getNumber();
-  public numbersPack: number[] = this.generateNumberPack();
-  lof = this.lox();
+  public currentNum: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  public numbersPack: number[];
+
   constructor() {
     this.numbersPack = this.generateNumberPack();
+    this.currentNum.next(this.getNumber());
   }
 
   public startNumberGeneration() {
-    let changeTime!: number;
+    let changeTime: number = 10;
     switch (this.difficultyLevel) {
       case 1:
         changeTime = 10;
@@ -28,30 +30,23 @@ export class TicketService {
         break;
     }
     setInterval(() => {
-      this.getNumber();
-      console.log(3);
+      this.currentNum.next(this.getNumber());
     }, 1000 * changeTime);
   }
-  private lox() {
-    console.log(1243);
-  }
+
   private createTicket() {
     return new Ticket();
   }
-  private getNumber() {
-    console.log(this.numbersPack, 2);
 
+  private getNumber() {
     return this.ticket.getRandomNumberFromPack(this.numbersPack);
   }
-  private generateNumberPack() {
-    console.log(12434);
 
+  private generateNumberPack() {
     const pack: number[] = [];
-    console.log(pack, 123342);
-    for (let i = 1; i < 90; i++) {
+    for (let i = 1; i <= 90; i++) {
       pack.push(i);
     }
-
     return pack;
   }
 }

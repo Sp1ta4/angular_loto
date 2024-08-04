@@ -1,0 +1,13 @@
+<div class="col-12 info-bar w-100 d-flex justify-content-between align-items-center position-relative">
+  <div class="timer bg-light p-3 rounded" id="timer-elem">{{timer}}</div>
+  <div
+    class="current-number d-flex justify-content-center align-items-center position-absolute top-50 start-50 translate-middle"
+    id="current-number">
+    {{currentNum}}
+  </div>
+  <div class="score bg-light p-3 rounded d-flex flex-column">
+    <span id="score">{{score}}</span>
+    <mat-progress-bar mode="determinate" value={{scorePercent}} class="mt-3 score-progress"></mat-progress-bar>
+
+  </div>
+</div>

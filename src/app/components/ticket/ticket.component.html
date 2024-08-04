@@ -1,3 +1,13 @@
-<div class="col-12 ticket mt-5 d-grid" *ngFor="let boxElem of ticket; let i = index">
-  <app-ticket-box [box]="boxElem" [index]="i"></app-ticket-box>
+<div class="col-12 w-100 d-flex flex-column ticket mt-5">
+  <div class="d-flex ticket-row" *ngFor="let row of ticket; let i = index;">
+    <div class="number-box" *ngFor="let box of row">
+      <div *ngIf="box" [ngClass]="{'checked': box.checked, 'number-box-hover': !box.checked}"
+        class="w-100 h-100  d-flex justify-content-center align-items-center" (click)="handleClick(box.number, i)">
+        {{box.number}}
+      </div>
+      <div *ngIf="!box">
+
+      </div>
+    </div>
+  </div>
 </div>

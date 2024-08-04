@@ -10,7 +10,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
 import { TicketComponent } from './components/ticket/ticket.component';
-import { TicketBoxComponent } from './components/ticket-box/ticket-box.component';
+import { TicketMenuComponent } from './components/ticket-menu/ticket-menu.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { TicketBoxComponent } from './components/ticket-box/ticket-box.component
     StartMenuComponent,
     MainGameComponent,
     TicketComponent,
-    TicketBoxComponent,
+    TicketMenuComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -28,6 +29,7 @@ import { TicketBoxComponent } from './components/ticket-box/ticket-box.component
     NgbModule,
     MatSliderModule,
     MatButtonModule,
+    MatProgressBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
